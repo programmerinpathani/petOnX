@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NEXT_TELEMETRY_DISABLED = "1"
+  NEXT_OUTPUT = "export"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
