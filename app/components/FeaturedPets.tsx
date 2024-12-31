@@ -38,7 +38,7 @@ export default function FeaturedPets() {
               >
                 {/* Hover Effect Background */}
                 <div className="absolute inset-0 bg-gradient-to-r from-violet-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                　 　{/* Image Container */}
+                　　{/* Image Container */}
                 <div className="relative h-64 overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10"></div>
                   <Image
@@ -117,7 +117,7 @@ export default function FeaturedPets() {
               </div>
               <p className="text-lg text-gray-600 mb-2">No Pets Available</p>
               <p className="text-gray-500">
-                We couldn't find any pets in {selectedLocation}. Try searching
+                We couldn&apos;t find any pets in {selectedLocation}. Try searching
                 in a different location.
               </p>
             </div>
