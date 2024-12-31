@@ -43,7 +43,7 @@ export default function Footer() {
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3B2F4D,transparent)] opacity-50"></div>
       
-      <div className="py-12 sm:py-16 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 relative">
         {/* Logo Section */}
         <div className="text-center mb-12">
           <Link href="/" className="inline-flex items-center gap-3 group">
