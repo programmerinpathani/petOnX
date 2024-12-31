@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Pet } from '../types/pet';
 import { featuredPets } from '../data/featuredPets';
+import { getPetById } from '../utils/petUtils';
 
 export function useSearchResults(query: string, category: string) {
   const [results, setResults] = useState<Pet[]>([]);
@@ -28,7 +29,8 @@ export function useSearchResults(query: string, category: string) {
         );
       }
 
-      setResults(filtered);
+      const transformedPets = filtered.map(pet => getPetById(pet.id)).filter((pet): pet is Pet => pet !== undefined);
+      setResults(transformedPets);
       setIsLoading(false);
     };
 

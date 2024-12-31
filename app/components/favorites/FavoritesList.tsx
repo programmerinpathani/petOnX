@@ -2,6 +2,7 @@
 
 import { useFavorites } from '@/app/hooks/useFavorites';
 import { featuredPets } from '@/app/data/featuredPets';
+import { getPetById } from '@/app/utils/petUtils';
 import PetCard from '../search/PetCard';
 
 // Define the Pet type
@@ -37,11 +38,14 @@ export default function FavoritesList() {
         {favoritePets.length} {favoritePets.length === 1 ? 'pet' : 'pets'} in your favorites
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {favoritePets.map((pet: Pet) => (
-          <PetCard key={pet.id} showFavoriteButton />
-        ))}
+        {favoritePets.map((favPet) => {
+          const pet = getPetById(favPet.id);
+          if (!pet) return null;
+          return (
+            <PetCard key={pet.id} pet={pet} showFavoriteButton />
+          );
+        })}
       </div>
     </div>
   );
 }
-   

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Pet } from '../types/pet';
 import { featuredPets } from '../data/featuredPets';
+import { getPetById } from '../utils/petUtils';
 
 interface CategoryFilters {
   minPrice?: number;
@@ -28,7 +29,8 @@ export function useCategoryResults(category: string, filters: CategoryFilters) {
         filtered = filtered.filter(pet => pet.price <= filters.maxPrice!);
       }
 
-      setResults(filtered);
+      const transformedPets = filtered.map(pet => getPetById(pet.id)).filter((pet): pet is Pet => pet !== undefined);
+      setResults(transformedPets);
       setIsLoading(false);
     };
 
