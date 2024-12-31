@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  --font-plus-jakarta: var(--font-plus-jakarta-sans);
   --foreground-rgb: 0, 0, 0;
   --background-rgb: 255, 255, 255;
 }
@@ -10,4 +11,93 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-sans text-gray-900 bg-gray-50;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200;
+  }
+
+  .input-primary {
+    @apply block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+}
+
+/* Premium Gradients */
+.gradient-primary {
+  @apply bg-gradient-to-r from-blue-600 to-blue-800;
+}
+
+.gradient-secondary {
+  @apply bg-gradient-to-r from-purple-600 to-blue-600;
+}
+
+/* Premium Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Glass Effect */
+.glass-effect {
+  @apply bg-white/10 backdrop-blur-md;
+}
+
+/* Premium Shadows */
+.shadow-premium {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full hover:bg-gray-400 transition-colors;
+}
+
+/* Loading Skeleton */
+.skeleton {
+  @apply animate-pulse bg-gray-200 rounded;
+}
+
+/* Premium Text Gradients */
+.text-gradient {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800;
 }
