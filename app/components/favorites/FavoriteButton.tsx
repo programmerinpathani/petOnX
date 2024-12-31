@@ -2,7 +2,7 @@
 
 import { useFavorites } from '@/app/hooks/useFavorites';
 
-export default function FavoriteButton({ petId }: { petId: number }) {
+export default function FavoriteButton({ petId, className = '' }: { petId: number; className?: string }) {
   const { isFavorite, addFavorite, removeFavorite } = useFavorites();
   const isCurrentlyFavorite = isFavorite(petId);
 
@@ -19,7 +19,7 @@ export default function FavoriteButton({ petId }: { petId: number }) {
   return (
     <button
       onClick={handleClick}
-      className={`absolute top-2 right-2 p-2 rounded-full ${
+      className={`${className} absolute top-2 right-2 p-2 rounded-full ${
         isCurrentlyFavorite ? 'bg-red-500' : 'bg-white'
       } shadow-md hover:scale-110 transition-transform z-10`}
       aria-label={isCurrentlyFavorite ? 'Remove from favorites' : 'Add to favorites'}
